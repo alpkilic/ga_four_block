@@ -51,7 +51,7 @@ view: session_list_with_event_history {
             , events.platform
             , events.event_dimensions
             , events.ecommerce
-            , ARRAY(select as STRUCT it.* EXCEPT(item_params) from unnest(events.items) as it) as items
+            , events.items as items
             from `@{GA4_SCHEMA}.@{GA4_TABLE_VARIABLE}` events
             where {% incrementcondition %} timestamp(PARSE_DATE('%Y%m%d', REGEXP_EXTRACT(_TABLE_SUFFIX,r'[0-9]+'))) {%  endincrementcondition %}
                --where timestamp(PARSE_DATE('%Y%m%d', REGEXP_EXTRACT(_TABLE_SUFFIX,r'[0-9]+'))) >= ((TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -15 DAY)))
@@ -68,4 +68,4 @@ view: session_list_with_event_history {
     default_value: "@{BQML_PARAMETER}"
 
   }
-  }
+}
