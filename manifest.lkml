@@ -2,7 +2,7 @@ project_name: "ga_four"
 
 ## Connection Constants:
 constant: GA4_CONNECTION {
-  value: "bq-looker-marketplace-ga4"
+  value: "oredata_big_data_looker_dataset"
   export: override_required
 }
 
