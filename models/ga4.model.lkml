@@ -8,7 +8,7 @@ label: "Google Analytics 4"
 
 
 datagroup: ga4_main_datagroup {
-  sql_trigger:  SELECT FORMAT_TIMESTAMP('%Y-%m-%d %H:%M', CURRENT_TIMESTAMP());;
+  sql_trigger: SELECT 1 ;;
   max_cache_age: "1 minute"
 }
 
